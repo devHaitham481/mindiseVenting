@@ -6,6 +6,7 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { ServiceComponent } from './pages/service/service.component'; 
 import { ChatComponent } from './pages/chat/chat.component';
 import { PagesViewComponent } from './pages/pages-view/pages-view.component';
+import {CalendlyComponent} from './pages/calendly/calendly.component';
 
 
 const routes: Routes = [
@@ -19,7 +20,8 @@ const routes: Routes = [
     {path:'about', component:AboutComponent},
     {path:'contact', component: ContactComponent},
     {path:'service', component:ServiceComponent},
-    {path:'chat', component:ChatComponent}
+    {path:'chat', component:ChatComponent},
+    {path: 'schedule' , component: CalendlyComponent}
   ]
 },
  { path: 'login', loadChildren: './pages/auth/auth.module#AuthModule' },

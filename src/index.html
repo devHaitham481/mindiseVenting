@@ -10,6 +10,7 @@
    <link rel="stylesheet" href="assets/css/bootstrap.css"> 
    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" type="text/css" rel="stylesheet">
+   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
   <!--  <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
    <link rel="stylesheet" href="vendors/lightbox/simpleLightbox.css">
    <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
@@ -21,6 +22,18 @@
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127100116-1"></script>
+<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"></script>
+<script>
+  Calendly.initInlineWidget({
+  url: 'https://calendly.com/devhaitham481',
+  prefill: {
+    name: 'example',
+    email: 'example.com',
+    customAnswers: 'demo'
+  },
+  parentElement: document.querySelector('.calendly-inline-widget'),
+  });
+</script>
 <script>
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}

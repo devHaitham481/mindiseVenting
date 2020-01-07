@@ -11,6 +11,7 @@ import { ChatComponent } from './pages/chat/chat.component';
 import { SharedModule } from './shared/shared.module';
 import { PagesViewComponent } from './pages/pages-view/pages-view.component';
 import {ReactiveFormsModule, FormsModule} from '@angular/forms';
+import { CalendlyComponent } from './pages/calendly/calendly.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {ReactiveFormsModule, FormsModule} from '@angular/forms';
     ServiceComponent,
     ContactComponent,
     ChatComponent,
-    PagesViewComponent
+    PagesViewComponent,
+    CalendlyComponent,
   ],
   imports: [
     BrowserModule,
