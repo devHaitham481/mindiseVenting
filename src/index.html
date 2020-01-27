@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Venting Hub</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.css" />
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+      type="text/css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://assets.calendly.com/assets/external/widget.css"
+      rel="stylesheet"
+    />
+    <!--  <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
+   <link rel="stylesheet" href="vendors/lightbox/simpleLightbox.css">
+   <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
+   <link rel="stylesheet" href="vendors/animate-css/animate.css"> -->
+    <!-- main css -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link href="assets/css/style2.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-127100116-1"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://assets.calendly.com/assets/external/widget.js"
+    ></script>
+    <script>
+      Calendly.initInlineWidget({
+        url: "https://calendly.com/devhaitham481",
+        prefill: {
+          name: "example",
+          email: "example.com",
+          customAnswers: "demo"
+        },
+        parentElement: document.querySelector(".calendly-inline-widget")
+      });
+    </script>
+    <script src="https://checkout.stripe.com/checkout.js"></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-127100116-1");
+    </script>
+  </head>
+  <body>
+    <app-root></app-root>
+  </body>
+</html>

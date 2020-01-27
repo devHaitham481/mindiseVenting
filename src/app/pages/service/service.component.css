@@ -1,0 +1,9 @@
+.home_banner_area {
+  min-height: 500px !important;
+  background: url(src/assets/img/service.jpg) no-repeat scroll center center;
+  background-image: url(src/assets/img/service.jpg);
+  background-size: cover;
+}
+.banner_inner {
+  background: rgba(0, 0, 0, 0.54) !important;
+}

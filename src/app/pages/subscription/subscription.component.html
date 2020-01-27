@@ -1,0 +1,246 @@
+<section class="price_area p_120">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-lg-7 mx-auto">
+        <div
+          style="border: 1px solid #cccc;"
+          class="bg-white rounded-lg shadow-sm p-5"
+        >
+          <ul
+            role="tablist"
+            class="nav bg-light nav-pills rounded-pill nav-fill mb-3"
+          >
+            <li class="nav-item">
+              <a
+                data-toggle="pill"
+                (click)="togglePaymentMethod('card')"
+                class="hover nav-link rounded-pill"
+              >
+                <i class="fa fa-credit-card"></i>
+                Credit Card
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                data-toggle="pill"
+                (click)="togglePaymentMethod('paypal')"
+                class="nav-link rounded-pill"
+              >
+                <i class="fa fa-paypal"></i>
+                Paypal
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                data-toggle="pill"
+                (click)="togglePaymentMethod('stripe')"
+                class="nav-link rounded-pill"
+              >
+                <i class="fa fa-credit-card"></i>
+                Stripe
+              </a>
+            </li>
+          </ul>
+          <div>
+            <div
+              *ngIf="paymentForm === 'card'"
+              id="nav-tab-card"
+              class="tab-pane fade show active"
+            >
+              <!-- <p class="alert alert-success">
+                Some text success or error
+              </p> -->
+              <form role="form">
+                <div class="form-group">
+                  <label for="username">Full name (on the card)</label>
+                  <input
+                    type="text"
+                    name="username"
+                    placeholder="Jason Doe"
+                    required
+                    class="form-control"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="cardNumber">Card number</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      name="cardNumber"
+                      placeholder="Your card number"
+                      class="form-control"
+                      required
+                    />
+                    <div class="input-group-append">
+                      <span class="input-group-text text-muted">
+                        <i class="fa fa-cc-visa mx-1"></i>
+                        <i class="fa fa-cc-amex mx-1"></i>
+                        <i class="fa fa-cc-mastercard mx-1"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-8">
+                    <div class="form-group">
+                      <label><span class="hidden-xs">Expiration</span></label>
+                      <div class="input-group">
+                        <input
+                          type="number"
+                          placeholder="MM"
+                          name=""
+                          class="form-control"
+                          required
+                        />
+                        <input
+                          type="number"
+                          placeholder="YY"
+                          name=""
+                          class="form-control"
+                          required
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group mb-4">
+                      <label
+                        data-toggle="tooltip"
+                        title="Three-digits code on the back of your card"
+                        >CVV
+                        <i class="fa fa-question-circle"></i>
+                      </label>
+                      <input type="text" required class="form-control" />
+                    </div>
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  class="subscribe btn btn-primary btn-block rounded-pill shadow-sm"
+                >
+                  Confirm
+                </button>
+              </form>
+            </div>
+            <div *ngIf="paymentForm === 'paypal'" id="nav-tab-paypal">
+              <!-- <p>Do you have paypal? Click Subscribe now!!</p> -->
+              <p>
+                <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+              </p>
+              <p class="text-muted"></p>
+            </div>
+
+            <!-- End -->
+
+            <!-- bank transfer info -->
+            <div
+              *ngIf="paymentForm === 'stripe'"
+              id="nav-tab-bank"
+              class="nav-link active rounded-pill"
+            >
+              <div class="container mt-5">
+                <h5
+                  style="    display: flex;
+                justify-content: center;"
+                >
+                  Stripe Checkout
+                </h5>
+                <div class="">
+                  <div class="">
+                    <button (click)="pay(10)" class="btn btn-success btn-block">
+                      Pay ${{ getPaymentId }}
+                    </button>
+                  </div>
+                </div>
+                <!-- <p class="mt-5">
+                  Try it out using the test card number
+                  <b>4242 4242 4242 4242</b>, a random three-digit CVC number,
+                  any expiration date in the future, and a random five-digit
+                  U.S. ZIP code.
+                </p> -->
+              </div>
+            </div>
+            <!-- End -->
+            <!-- <div *ngIf="paymentForm === 'stripe'" id="nav-tab-bank">
+            <p class="alert alert-success">
+              Some text success stripe or error
+            </p>
+            <form role="form">
+              <div class="form-group">
+                <label for="username">Full name (on the card)</label>
+                <input
+                  type="text"
+                  name="username"
+                  placeholder="Jason Doe"
+                  required
+                  class="form-control"
+                />
+              </div>
+              <div class="form-group">
+                <label for="cardNumber">Card number</label>
+                <div class="input-group">
+                  <input
+                    type="text"
+                    name="cardNumber"
+                    placeholder="Your card number"
+                    class="form-control"
+                    required
+                  />
+                  <div class="input-group-append">
+                    <span class="input-group-text text-muted">
+                      <i class="fa fa-cc-visa mx-1"></i>
+                      <i class="fa fa-cc-amex mx-1"></i>
+                      <i class="fa fa-cc-mastercard mx-1"></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-8">
+                  <div class="form-group">
+                    <label><span class="hidden-xs">Expiration</span></label>
+                    <div class="input-group">
+                      <input
+                        type="number"
+                        placeholder="MM"
+                        name=""
+                        class="form-control"
+                        required
+                      />
+                      <input
+                        type="number"
+                        placeholder="YY"
+                        name=""
+                        class="form-control"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group mb-4">
+                    <label
+                      data-toggle="tooltip"
+                      title="Three-digits code on the back of your card"
+                      >CVV
+                      <i class="fa fa-question-circle"></i>
+                    </label>
+                    <input type="text" required class="form-control" />
+                  </div>
+                </div>
+              </div>
+              <button
+                type="button"
+                class="subscribe btn btn-primary btn-block rounded-pill shadow-sm"
+              >
+                Confirm
+              </button>
+            </form>
+          </div> -->
+          </div>
+          <!-- End -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
